@@ -4,8 +4,9 @@ import chat.logs.LoggerEx;
 import com.docker.rpc.remote.stub.ServiceStubManager;
 
 import java.io.IOException;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Aplomb on 2017/3/22.
  */
@@ -42,11 +43,32 @@ public class Main {
         serviceStubManager.setHost("localhost:8088");
 //        serviceStubManager.setUsePublicDomain(false);
         serviceStubManager.init();
-//        ClassRoomService roomService = serviceStubManager.getService("aaa", ClassRoomService.class);
+        TCClassRoomService service = serviceStubManager.getService("tcclassroom", TCClassRoomService.class);
+//        TCClassRoom tcClassRoom = service.getTCClassRoom("5a620da3b5830d3aec54e180");
+//        tcClassRoom.getEndTime();
+//        TCClassRoom classRomm = service.getClassRoom("5a607ec25bcc5f13e54221bf");
+//        service.addTCClassRoom(new TCClassRoom());
+        //List<TCClassRoom> roomList = service.getTCClassRoomList(1, 2, 1, 1, false);
 
 
-//        UserService userService = serviceStubManager.getService("pkuser", UserService.class);
-//        userService.getUser("1234");
+
+        //批量删除操作
+//        List<String> roomIds = new ArrayList<>();
+//        roomIds.add("5a657d9bbf7498091fc1aafb");
+//        roomIds.add("5a657dc3bf7498091fc1aafc");
+//
+//        service.deleteTCClassRooms(roomIds);
+
+
+        //课件关联操作  5a657cf0bf7498091fc1aaf9
+//        service.addTCCourseware("5a657cf0bf7498091fc1aaf9", "123456");
+
+
+        //按id精确搜索
+        TCClassRoom tcClassRoom = service.searchById("5a657cf0bf7498091fc1aaf9");
+
+
+        //UserService userService = serviceStubManager.getService("pkuser", UserService.class);
 //        WalletService walletService = serviceStubManager.getService("pkwallet", WalletService.class);
 //        RoomService roomService = serviceStubManager.getService("pkroom", RoomService.class);
 //
