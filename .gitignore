@@ -1,0 +1,18 @@
+*.class
+
+# Log file
+*.log
+build
+target
+
+### macOS
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+
+# idea
+.idea/
+*.iml
+git
